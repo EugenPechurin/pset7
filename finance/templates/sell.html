@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<form action="{{ url_for('sell') }}" method="post">
+    <fieldset>
+            <select class="form-control" name="symbol">
+                {% if not symbol %}
+                <option disabled selected value="">Symbol</option>
+                {% endif %}
+                {% for symbold in symbols %}
+                    <option {% if symbol == symbold["symbol"] %}selected{% endif %} value="{{ symbold["symbol"] }}"> {{ symbold["symbol"] }} </option>
+                {% endfor %}
+                </select>
+            <input autocomplete="off" size="2" class="form-control" name="shares" placeholder="Shares" type="text" value="{{ shares }}"/>
+      
+            <button class="btn btn-info" type="submit">
+                <span aria-hidden="true" ></span>
+                Sell
+            </button>
+    </fieldset>
+</form>
+{% endblock %}

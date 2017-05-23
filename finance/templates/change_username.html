@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    username
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('change_username') }}" method="post">
+    <fieldset>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="New username" type="text"/>
+        </div>
+            <button class="btn btn-default" type="submit">
+                <span aria-hidden="true"></span>
+                Change
+            </button>
+    </fieldset>
+    </form>
+{% endblock %}

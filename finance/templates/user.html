@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block main %}
+    <form>
+    <fieldset>
+        <div class="form-group">
+            <a href="{{ url_for('change_username') }}" class="btn btn-info" role="button">Change user name</a>
+        </div>
+        <div class="form-group">
+            <a href="{{ url_for('change_password') }}" class="btn btn-info" role="button">Change password</a>
+        </div>
+        
+    </fieldset>
+</form>
+{% endblock %}

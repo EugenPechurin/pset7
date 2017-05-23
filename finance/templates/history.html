@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<form action="{{ url_for('history') }}" method="post">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Transaction</th>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-left">
+                
+            {% for position in positions %}
+        
+            <tr>
+                <td>{{ position.transaction }}</td>
+                <td>{{ position.symbol }}</td>
+                <td>{{ position.shares }}</td>
+                <td>${{ "{0:.2f}".format(position.price) }}</td>
+                <td>${{ "{0:.2f}".format(position.total) }}</td>
+                <td>${{ position.date }}</td>
+            </tr>
+        
+            {% endfor %}
+            </tbody>
+            
+        </table>
+    </div>
+</form>
+{% endblock %}
